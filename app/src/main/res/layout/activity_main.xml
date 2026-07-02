@@ -23,60 +23,89 @@
 
 
 
+
+
     ]]>
 
     <com.example.a33_plus_drawtest.PainterView
         android:id="@+id/paintCanvasView"
         android:layout_width="368dp"
         android:layout_height="467dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_set_color_black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="28dp"
-        android:text="검정"
-        app:layout_constraintBottom_toTopOf="@+id/paintCanvasView"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button_set_color_blue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="28dp"
-        android:text="파랑"
-        app:layout_constraintBottom_toTopOf="@+id/paintCanvasView"
-        app:layout_constraintStart_toEndOf="@+id/button_set_color_black" />
-
-    <Button
-        android:id="@+id/button_eraser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginBottom="28dp"
-        android:text="지우개"
-        app:layout_constraintBottom_toTopOf="@+id/paintCanvasView"
-        app:layout_constraintStart_toEndOf="@+id/button_erase_all" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_set_color_black" />
 
     <Button
         android:id="@+id/button_erase_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="56dp"
         android:text="다지워"
-        app:layout_constraintBottom_toTopOf="@+id/paintCanvasView"
-        app:layout_constraintStart_toEndOf="@+id/button_set_color_blue" />
+        app:layout_constraintStart_toEndOf="@+id/button_set_color_blue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_set_color_black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
+        android:text="검정"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_set_color_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="56dp"
+        android:text="파랑"
+        app:layout_constraintStart_toEndOf="@+id/button_set_color_black"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_eraser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="56dp"
+        android:text="지우개"
+        app:layout_constraintStart_toEndOf="@+id/button_erase_all"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_change_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        android:text="크기조정"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="저장"
+        app:layout_constraintStart_toEndOf="@+id/button_change_size"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:text="로드"
+        app:layout_constraintStart_toEndOf="@+id/button_save"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

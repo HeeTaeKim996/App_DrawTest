@@ -31,6 +31,18 @@ public class MainInterface
         {
             mainBinding.paintCanvasView.SetEraserMode();
         });
+        mainBinding.buttonSave.setOnClickListener(v->
+        {
+            mainBinding.paintCanvasView.SaveCanvas(context);
+        });
+        mainBinding.buttonLoad.setOnClickListener(v->
+        {
+            mainBinding.paintCanvasView.LoadCanvas(context);
+        });
+        mainBinding.buttonChangeSize.setOnClickListener(v->
+        {
+            mainBinding.paintCanvasView.ChangeSize();
+        });
     }
 
     public View GetRootView()

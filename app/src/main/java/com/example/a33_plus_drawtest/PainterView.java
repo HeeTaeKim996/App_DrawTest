@@ -2,6 +2,7 @@ package com.example.a33_plus_drawtest;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,6 +11,14 @@ import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.core.graphics.BitmapCompat;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 
 public class PainterView extends View
 {
@@ -137,6 +146,80 @@ public class PainterView extends View
     }
 
 
+
+    public void SaveCanvas(Context context)
+    {
+        if(canvasBitmap == null) return;
+
+        File file = new File(context.getFilesDir(), "BitmapData.dat");
+
+        try
+        {
+            FileOutputStream fos = new FileOutputStream(file);
+            canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void LoadCanvas(Context context)
+    {
+        File file = new File(context.getFilesDir(), "BitmapData.dat");
+        if(file.exists() == false) return;
+
+        Bitmap srcBitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+        if(srcBitmap == null) return;
+
+        // 픽셀 수정이 가능하도록 (2)mutable 을 true
+        canvasBitmap = srcBitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+        bitmapCanvas = new Canvas(canvasBitmap);
+
+        srcBitmap.recycle(); // 메모리 해제
+
+        invalidate();
+    }
+
+
+    private  boolean sizeBool = false;
+    private int initWidth = -1;
+    private int initHeight = -1;
+
+    public void ChangeSize()
+    {
+        ViewGroup.LayoutParams params = this.getLayoutParams();
+
+
+
+        if(params != null)
+        {
+            if(initWidth == -1)
+            {
+                initWidth = params.width;
+                initHeight = params.height;
+            }
+
+
+            if(sizeBool)
+            {
+                params.width = initWidth;
+                params.height = initHeight;
+            }
+            else
+            {
+                params.width = (int)(initWidth * 0.7f);
+                params.height = (int)(initHeight * 0.7f);
+            }
+
+            this.setLayoutParams(params);
+            sizeBool = !sizeBool;
+        }
+
+    }
 
 }
 

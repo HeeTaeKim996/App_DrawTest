@@ -17,6 +17,7 @@ public class TestIntetface
     {
         mainBinding = MainTestBinding.inflate(LayoutInflater.from(context));
         mainBinding.pictureTest.Initialize(this);
+        mainBinding.textTest.Initialize(this);
 
         mainBinding.getRoot().setOnClickListener(v->
         {

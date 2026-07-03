@@ -18,6 +18,9 @@ public class PictureView extends PosDrawser
     private Bitmap imageBitmap;
     private RectF destRect;
 
+    private int width;
+    private int height;
+
     public PictureView(Context context)
     {
         super(context);
@@ -51,7 +54,7 @@ public class PictureView extends PosDrawser
         super.onDraw(canvas);
         if(imageBitmap == null) return;
 
-        destRect.set(strokeWidth, strokeWidth, width, height);
+        destRect.set(strokeWidth, strokeWidth, width + strokeWidth, height + strokeWidth);
         canvas.drawBitmap(imageBitmap, null, destRect, picturePaint);
     }
 
@@ -74,8 +77,8 @@ public class PictureView extends PosDrawser
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
-        int desiredWidth = imageBitmap != null ? imageBitmap.getWidth() + (int)strokeWidth : 0;
-        int desiredHeight = imageBitmap != null ? imageBitmap.getHeight() + (int)strokeWidth: 0;
+        int desiredWidth = imageBitmap != null ? imageBitmap.getWidth() + (int)strokeWidth * 2 : 0;
+        int desiredHeight = imageBitmap != null ? imageBitmap.getHeight() + (int)strokeWidth * 2: 0;
 
         int width = resolveSizeAndState(desiredWidth, widthMeasureSpec, 0);
         int height = resolveSizeAndState(desiredHeight, heightMeasureSpec, 0);

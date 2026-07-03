@@ -10,9 +10,6 @@ import android.view.View;
 
 public class PosDrawser extends View
 {
-    protected float width;
-    protected float height;
-
     private float lastPosX;
     private float lastPosY;
 

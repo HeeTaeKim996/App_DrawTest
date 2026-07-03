@@ -9,10 +9,9 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 
-public class TextView extends PosDrawser
+public class TextView extends PosView
 {
     private TextPaint textPaint;
     private StaticLayout staticLayout; // 텍스트를 측정하여 줄바꿈 자동 수행하며, draw 를 하는 역할

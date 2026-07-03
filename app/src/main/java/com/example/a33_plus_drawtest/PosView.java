@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class PosDrawser extends View
+public class PosView extends View
 {
     private float lastPosX;
     private float lastPosY;
@@ -26,19 +26,19 @@ public class PosDrawser extends View
         this.testIntetface = testIntetface;
     }
 
-    public PosDrawser(Context context)
+    public PosView(Context context)
     {
         super(context);
         PosInit();
     }
 
-    public PosDrawser(Context context, AttributeSet attrs)
+    public PosView(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         PosInit();
     }
 
-    public PosDrawser(Context context, AttributeSet attrs, int defStyleAttr)
+    public PosView(Context context, AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
         PosInit();
@@ -85,6 +85,11 @@ public class PosDrawser extends View
             case MotionEvent.ACTION_MOVE:
                 if (isPicked)
                 {
+                    if(getParent() != null)
+                    {
+                        getParent().requestDisallowInterceptTouchEvent(true);
+                    }
+
                     float currPosX = event.getRawX();
                     float currPosY = event.getRawY();
 

@@ -8,11 +8,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 
-import androidx.constraintlayout.widget.ConstraintSet;
-
-public class PictureView extends PosDrawser
+public class PictureView extends PosView
 {
     private Paint picturePaint;
     private Bitmap imageBitmap;

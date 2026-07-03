@@ -14,8 +14,8 @@ public class PngDrawView extends View
 {
     private float touchX = -100f;
     private float touchY = -100f;
-    private float width = 200f;
-    private float height = 160f;
+//    private float width = 200f;
+//    private float height = 160f;
 
     private Paint paint;
     private Bitmap imageBitmap;
@@ -56,7 +56,10 @@ public class PngDrawView extends View
     {
         super.onDraw(canvas);
 
-        if(imageBitmap == null || touchX < 0 || touchY < 0) return;
+        if(imageBitmap == null) return;
+
+        float width = imageBitmap.getWidth() * 5.f;
+        float height = imageBitmap.getHeight() * 5.f;
 
         float left =    touchX - width / 2.f;
         float right =   touchX + width / 2.f;

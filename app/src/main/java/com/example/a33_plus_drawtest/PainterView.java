@@ -91,6 +91,8 @@ public class PainterView extends View
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
+        if(super.onTouchEvent(event)) return true;
+
         float touchX = event.getX();
         float touchY = event.getY();
 

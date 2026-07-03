@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.a33_plus_drawtest.databinding.MainTestBinding;
+
 public class MainActivity extends AppCompatActivity
 {
 //    CircleDrawView circleDrawView;
@@ -12,6 +14,7 @@ public class MainActivity extends AppCompatActivity
 
 
     MainInterface mainInterface;
+    TestIntetface testIntetface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,8 +29,12 @@ public class MainActivity extends AppCompatActivity
 //        painterView = new PainterView(this);
 //        setContentView(painterView);
 
-        mainInterface = new MainInterface(this);
-        setContentView(mainInterface.GetRootView());
+//        mainInterface = new MainInterface(this);
+//        setContentView(mainInterface.GetRootView());
 
+//        setContentView(R.layout.main_test);
+
+        testIntetface = new TestIntetface(this);
+        setContentView(testIntetface.GetRootView());
     }
 }
